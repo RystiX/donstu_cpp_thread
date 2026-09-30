@@ -1,5 +1,5 @@
 #pragma once
-
+#include <atomic>
 #include <string>
 #include <mutex>
 #include <fstream>
@@ -7,6 +7,7 @@
 // count of threads and iterations
 constexpr int COUNT_THREADS    = 4;
 constexpr int COUNT_ITERATIONS = 3;
+extern std::atomic<int> counter;
 
 // args for thread
 struct ThreadArgs {
@@ -21,7 +22,7 @@ public:
   ~Logger();
 
   // write line with mutex
-  void writeLine(const std::string& msg);
+  bool writeLine(const std::string& msg);
 
   // block copy and move
   Logger(const Logger&)            = delete;
