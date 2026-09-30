@@ -2,6 +2,8 @@
 #include "threadfuncs.h"
 
 #include <iostream>
+#include <thread>
+#include <chrono>
 #include <sstream>
 #include <unistd.h>
 #include <syscall.h>
